@@ -5,23 +5,32 @@ function configureListeners() {
      for (var i = 0; i < images.length; i++) {        
         // iterate over images and add mouseover event listeners   
         images[i].addEventListener('mouseover',addOpacity );
+        
         images[i].addEventListener('mouseout',removeOpacity);
+    
+
     } 
+
 }
+
 
 function addOpacity(event) {
     if (!this.classList.contains('dim')){
         this.classList.add('dim')
+       
     }    
-    
+    getProductInfo(event.target.id);  
     
 }
+
  
 function removeOpacity(event) {
     if (this.classList.contains('dim')){
         this.classList.remove('dim');
+        
     }
-    getProductInfo(event.target.id);   
+    getProductInfo(event.target.id);  
+   
 
 
     let element = document.getElementById('color-price');
@@ -30,8 +39,10 @@ function removeOpacity(event) {
     let color = document.getElementById('color-name');
         color.textContent = ''; 
 
-    event.preventDefault();    
+    event.preventDefault(); 
+  
 }
+
 
 function getProductInfo(paintColor) {
     let price;
@@ -43,6 +54,7 @@ function getProductInfo(paintColor) {
             colorName ='Lime Green' ;
             price= '$14.99' ;
             updatePrice(colorName, price);
+            
             break;           
         case 'pn2':
             colorName ='Medium Brown' ;
@@ -71,7 +83,7 @@ function getProductInfo(paintColor) {
             break;   
         case 'pn7':
             colorName='Solid Cyan' ;
-            price= '$8.22' ;
+            price = '$8.22' ;
             updatePrice(colorName, price);
             break;   
         case 'pn8':
@@ -81,7 +93,7 @@ function getProductInfo(paintColor) {
             break;   
         case 'pn9':
             colorName='Solid Yellow' ;
-            price= '$14.99' ;
+            price="$14.99";
             updatePrice(colorName, price);
             break;   
           default:              
@@ -94,6 +106,8 @@ function getProductInfo(paintColor) {
         
         let color = document.getElementById('color-name');
         color.textContent = colorName;
+
+        console.log('this ran')
     }
 }
 

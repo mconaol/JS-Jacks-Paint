@@ -35,7 +35,7 @@ body{
   }
 
   #paint-info-container {
-    height: 5.5em;
+    min-height: 5.5em;
   }
 
   
